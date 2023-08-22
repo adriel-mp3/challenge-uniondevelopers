@@ -4,7 +4,9 @@ const Home = () => {
     <>
       <header className="home-header">
         <h1 className="heading-primary">List Users</h1>
-        <input className="text-input" type="text" />
+        <div className="input-wrapper">
+          <input className="text-input" type="text" placeholder="Search user..."/>
+        </div>
       </header>
     </>
   );
