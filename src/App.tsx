@@ -1,8 +1,17 @@
-import './styles/main.scss';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./styles/main.scss";
+import Home from "./pages/Home";
+import User from "./pages/User";
 
 function App() {
-
-  return <h1>Hello World</h1>
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="user/:id" element={<User />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
