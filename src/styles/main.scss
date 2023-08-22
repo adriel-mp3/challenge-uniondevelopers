@@ -1,6 +1,9 @@
 // Abstract files
 @import "./abstracts/variables";
 
+// Components
+@import './components/all';
+
 // Core files
 @import "./core/reset";
 @import "./core/typography";
