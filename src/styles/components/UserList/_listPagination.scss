@@ -1,0 +1,34 @@
+.pagination-buttons {
+  margin-bottom: 60px;
+  
+  .buttons-wrapper {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    
+    button {
+      cursor: pointer;
+      color: $font-color--white90;
+      font-size: $font-size--xl;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border: 1px solid $purple;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+    }
+
+    button.active {
+      background: $purple;
+      color:$font-color--white100;
+    }
+
+    .next-button {
+      img {
+        rotate: 180deg;
+      }
+    }
+  }
+}
