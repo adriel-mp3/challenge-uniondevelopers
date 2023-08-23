@@ -1,4 +1,5 @@
 import React from "react";
+import UserList from "../components/UserList";
 import useFetch from "../hooks/useFetch";
 
 const Home = () => {
@@ -22,6 +23,9 @@ const Home = () => {
           />
         </div>
       </header>
+      <main>
+        <UserList data={data} status={{ error, loading }} />
+      </main>
     </>
   );
 };
