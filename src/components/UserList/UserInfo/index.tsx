@@ -1,8 +1,27 @@
-const UserInfo = ({ user }) => {
-  const formatDate = (date: string) => date.split("T")[0];
+interface User {
+  login: {
+    salt: string;
+  };
+  name: {
+    first: string;
+    last: string;
+    title: string;
+  };
+  dob: {
+    date: string;
+    age: number;
+  };
+}
 
+interface UserInfoProps {
+  user: User;
+}
+
+const UserInfo = ({ user }: UserInfoProps) => {
+  const formatDate = (date: string) => date.split("T")[0];
+  
   return (
-    <div className="list-item" >
+    <div className="list-item">
       <div className="item-info">
         <span className="text-base">{user.login.salt}</span>
       </div>

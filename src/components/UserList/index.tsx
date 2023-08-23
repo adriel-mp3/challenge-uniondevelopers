@@ -2,7 +2,37 @@ import React from "react";
 import userListHeaderItems from "../../utils/userListHeaderItems";
 import UserInfo from "./UserInfo";
 
-const UserList = ({ data, status }) => {
+interface User {
+  id: {
+    value: string;
+  };
+  login: {
+    salt: string;
+  };
+  name: {
+    first: string;
+    last: string;
+    title: string;
+  };
+  dob: {
+    date: string;
+    age: number;
+  };
+}
+
+interface UserStatus {
+  loading: boolean;
+  error: string | null;
+}
+
+interface UserListProps {
+  data: {
+    results: User[];
+  } | null;
+  status: UserStatus;
+}
+
+const UserList = ({ data, status }: UserListProps) => {
 
   if (status.loading) {
     return (
