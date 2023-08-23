@@ -1,6 +1,7 @@
 import React from "react";
 import UserList from "../components/UserList";
 import useFetch from "../hooks/useFetch";
+import ListPagination from "../components/UserList/ListPagination";
 
 const Home = () => {
   const { data, loading, error, request: get } = useFetch();
@@ -12,7 +13,7 @@ const Home = () => {
   }, [get]);
 
   return (
-    <>
+    <div className="home-wrapper">
       <header className="home-header">
         <h1 className="heading-primary">List Users</h1>
         <div className="input-wrapper">
@@ -23,10 +24,8 @@ const Home = () => {
           />
         </div>
       </header>
-      <main>
-        <UserList data={data} status={{ error, loading }} />
-      </main>
-    </>
+      <UserList data={data} status={{ error, loading }} />
+    </div>
   );
 };
 
