@@ -5,15 +5,19 @@ import ListPagination from "../components/UserList/ListPagination";
 
 const Home = () => {
   const { data, loading, error, request: get } = useFetch();
-
+  const [page, setPage] = React.useState(1);
+  
   React.useEffect(() => {
     (async function fetchUsers() {
-      await get(`https://randomuser.me/api/?page=1&results=10&seed=abc`, {});
+      await get(
+        `https://randomuser.me/api/?page=${page}&results=10&seed=abc`,
+        {}
+      );
     })();
-  }, [get]);
+  }, [get, page]);
 
   return (
-    <div className="home-wrapper">
+    <>
       <header className="home-header">
         <h1 className="heading-primary">List Users</h1>
         <div className="input-wrapper">
@@ -24,8 +28,11 @@ const Home = () => {
           />
         </div>
       </header>
-      <UserList data={data} status={{ error, loading }} />
-    </div>
+      <main className="home-wrapper">
+        <UserList data={data} status={{ error, loading }} />
+        <ListPagination page={page} setPage={setPage} />
+      </main>
+    </>
   );
 };
 
