@@ -3,11 +3,9 @@ import userListHeaderItems from "../../utils/userListHeaderItems";
 import UserInfo from "./UserInfo";
 
 interface User {
-  id: {
-    value: string;
-  };
   login: {
     salt: string;
+    uuid: string;
   };
   name: {
     first: string;
@@ -36,7 +34,7 @@ const UserList = ({ data, status }: UserListProps) => {
 
   if (status.loading) {
     return (
-      <p className="text-base" style={{ color: "white", textAlign: "center" }}>
+      <p className="text-base" style={{ color: "white", textAlign: "center" , height:'730px'}}>
         Loading...
       </p>
     );
@@ -51,18 +49,18 @@ const UserList = ({ data, status }: UserListProps) => {
   }
 
   return (
-    <div className="list">
+    <main className="list">
       <div className="list-header">
-        {userListHeaderItems.map((item, index) => (
-          <div className="header-item" key={index}>
+        {userListHeaderItems.map((item) => (
+          <div className="header-item" key={item.label}>
             <span className="text-base">{item.label}</span>
           </div>
         ))}
       </div>
       {data && data.results.map((user) => (
-        <UserInfo user={user} key={user.id.value} />
+        <UserInfo user={user} key={user.login.uuid} />
       ))}
-    </div>
+    </main>
   );
 };
 
