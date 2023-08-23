@@ -1,0 +1,41 @@
+.list {
+  padding: 0 40px;
+  margin-bottom: 40px;
+
+  .list-header,
+  .list-item {
+    display: flex;
+    max-width: 1330px;
+    margin: 0 auto;
+  }
+
+  .header-item,
+  .item-info {
+    text-align: center;
+    padding: 8px;
+    width: 190px;
+    color: $font-color--white100;
+  }
+
+  .header-item {
+    background: $purple;
+  }
+
+  .item-info {
+    padding: 23px 0;
+  }
+
+  .list-item + .list-item {
+    border-top: 1px solid $border-color--dark100;
+  }
+
+  .profile-link {
+    transition: 0.3s;
+    cursor: pointer;
+    color: $purple;
+  }
+
+  .profile-link:hover {
+    text-decoration: underline;
+  }
+}
