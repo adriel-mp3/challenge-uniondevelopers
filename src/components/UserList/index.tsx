@@ -55,9 +55,8 @@ const UserList = ({ data, status }: UserListProps) => {
           </div>
         ))}
       </div>
-      {data && data.results.map((user) => (
-        <UserInfo user={user} key={user.login.uuid} />
-      ))}
+      {data &&
+        data.map((user) => <UserInfo user={user} key={user.login.uuid} />)}
     </main>
   );
 };
