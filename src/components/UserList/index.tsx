@@ -24,9 +24,7 @@ interface UserStatus {
 }
 
 interface UserListProps {
-  data: {
-    results: User[];
-  } | null;
+  data: User[] | null; 
   status: UserStatus;
 }
 
