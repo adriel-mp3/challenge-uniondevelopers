@@ -1,6 +1,7 @@
 import React from "react";
 import userListHeaderItems from "../../utils/userListHeaderItems";
 import UserInfo from "./UserInfo";
+import StatusMessage from "./StatusMessage";
 
 interface User {
   login: {
@@ -29,21 +30,17 @@ interface UserListProps {
 }
 
 const UserList = ({ data, status }: UserListProps) => {
-
+  
   if (status.loading) {
-    return (
-      <p className="text-base" style={{ color: "white", textAlign: "center" , height:'730px'}}>
-        Loading...
-      </p>
-    );
+    return <StatusMessage type={'loading'}/>
   }
 
   if (status.error) {
-    return (
-      <p className="text-base" style={{ color: "red", textAlign: "center" }}>
-        {status.error} :c
-      </p>
-    );
+    return <StatusMessage type={'error'}/>
+  }
+  
+  if (data && data.length === 0) {
+    return <StatusMessage type={'notFound'}/>
   }
 
   return (
