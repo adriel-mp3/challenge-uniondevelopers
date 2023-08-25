@@ -23,6 +23,10 @@
         background: $purple;
         color: $font-color--white100;
       }
+
+      &:hover {
+        background: darken($purple, 10%);
+      }
     }
 
     .next-button {
