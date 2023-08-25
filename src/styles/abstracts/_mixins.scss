@@ -1,0 +1,4 @@
+@mixin divider($color: $border-color--dark100) {
+  border: none;
+  border-bottom: 1px solid $color;
+}
