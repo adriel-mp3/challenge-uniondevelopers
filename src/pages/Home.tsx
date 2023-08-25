@@ -3,6 +3,7 @@ import UserList from "../components/UserList";
 import useFetch from "../hooks/useFetch";
 import ListPagination from "../components/UserList/ListPagination";
 import FilterUserInput from "../components/FilterUserInput";
+import Divider from "../components/Divider";
 
 interface User {
   name: {
@@ -39,6 +40,7 @@ const Home = () => {
         <h1 className="heading-primary">List Users</h1>
         <FilterUserInput setFilterText={setFilterText} />
       </header>
+      <Divider/>
       <main className="home-wrapper">
         <UserList data={filteredUsers} status={{ error, loading }} />
         <ListPagination page={page} setPage={setPage} />
