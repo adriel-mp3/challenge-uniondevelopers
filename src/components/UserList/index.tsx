@@ -1,6 +1,7 @@
 import React from "react";
 import userListHeaderItems from "../../utils/userListHeaderItems";
 import UserInfo from "./UserInfo";
+import StatusMessage from "./StatusMessage";
 
 interface User {
   login: {
@@ -24,28 +25,22 @@ interface UserStatus {
 }
 
 interface UserListProps {
-  data: {
-    results: User[];
-  } | null;
+  data: User[] | null; 
   status: UserStatus;
 }
 
 const UserList = ({ data, status }: UserListProps) => {
-
+  
   if (status.loading) {
-    return (
-      <p className="text-base" style={{ color: "white", textAlign: "center" , height:'730px'}}>
-        Loading...
-      </p>
-    );
+    return <StatusMessage type={'loading'}/>
   }
 
   if (status.error) {
-    return (
-      <p className="text-base" style={{ color: "red", textAlign: "center" }}>
-        {status.error} :c
-      </p>
-    );
+    return <StatusMessage type={'error'}/>
+  }
+  
+  if (data && data.length === 0) {
+    return <StatusMessage type={'notFound'}/>
   }
 
   return (
@@ -57,9 +52,8 @@ const UserList = ({ data, status }: UserListProps) => {
           </div>
         ))}
       </div>
-      {data && data.results.map((user) => (
-        <UserInfo user={user} key={user.login.uuid} />
-      ))}
+      {data &&
+        data.map((user) => <UserInfo user={user} key={user.login.uuid} />)}
     </main>
   );
 };
