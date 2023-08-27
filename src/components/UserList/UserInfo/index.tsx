@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import React from "react";
+import { UserContext } from "../../../context/UserContext";
 interface User {
   login: {
     salt: string;
@@ -19,7 +22,7 @@ interface UserInfoProps {
 
 const UserInfo = ({ user }: UserInfoProps) => {
   const formatDate = (date: string) => date.split("T")[0];
-  
+  const { setUserInfo } = React.useContext(UserContext);
   return (
     <div className="list-item">
       <div className="item-info">
@@ -41,7 +44,13 @@ const UserInfo = ({ user }: UserInfoProps) => {
         <span className="text-base">{user.dob.age}</span>
       </div>
       <div className="item-info">
-        <span className="text-base profile-link">View profile</span>
+        <Link
+          to={`/user/${user.name.first}`}
+          className="text-base profile-link"
+          onClick={() => setUserInfo(user)}
+        >
+          View profile
+        </Link>
       </div>
     </div>
   );

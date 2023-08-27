@@ -2,11 +2,15 @@
   padding: 0 40px;
   margin-bottom: 40px;
 
+  .list-header {
+    margin-top: 40px;
+  }
+
   .list-header,
   .list-item {
     display: flex;
     max-width: 1330px;
-    margin: 40px auto 0 auto;
+    margin: 0 auto;
   }
 
   .header-item,

@@ -5,7 +5,14 @@ interface UseFetchResponse {
   json: any;
 }
 
-const useFetch = () => {
+interface ApiResponse<Data> {
+  data: Data;
+  loading: boolean;
+  error: string | null;
+  request: (url: string, options: object) => Promise<void>;
+}
+
+const useFetch = <Data = any>(): ApiResponse<Data> => {
   const [data, setData] = React.useState(null);
   const [error, setError] = React.useState<string | null>(null);
   const [loading, setLoading] = React.useState(false);
