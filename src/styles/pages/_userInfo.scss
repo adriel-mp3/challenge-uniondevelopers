@@ -1,0 +1,17 @@
+.info-list {
+  li + li {
+    margin-top: 40px;
+  }
+
+  li > span {
+    @extend .text-md;
+    display: block;
+    margin-bottom: 8px;
+    color:$font-color--white100;
+  }
+
+  li > p {
+    @extend .text-sm;
+    color:$font-color--white80;
+  }
+}
